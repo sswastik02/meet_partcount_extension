@@ -48,6 +48,7 @@ function check(names) {
     X= document.createElement('div');
     X.style.fontWeight='15px';
     X.style.fontSize='15px';
+    X.style.top = '10px';
     X.style.position='relative';
     X.style.left='95%';
     X.style.fontColor='white';
@@ -64,11 +65,14 @@ function check(names) {
 
     logn=document.createElement('button')
     logn.onclick= ()=> {
-        document.querySelector('.gV3Svc').click()
+        // click on participant list gmeet
+        document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.rG0ybd.xPh1xb.P9KVBf.LCXT6 > div.TqwH9c > div.SZfyod > div > div > div:nth-child(2) > span > button").click()
         chrome.storage.sync.set({'names':lognames('ZjFb7c')}, async ()=>{
             console.log('recorded')
+            console.log(lognames('ZjFb7c'))
             await sleep(500)
-            document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.mKBhCf.qwU8Me.RlceJe.kjZr4 > div > div.Bx7THd.PBWx0c.Uy7Qke.XN1AMe > div.CYZUZd > div.VUk8eb > div > span > button > i").click()
+            // wait for function to log names
+            document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.rG0ybd.xPh1xb.P9KVBf.LCXT6 > div.TqwH9c > div.SZfyod > div > div > div:nth-child(2) > span > button").click()
         })
  }
     logn.innerHTML='RECORD'
@@ -85,13 +89,13 @@ function check(names) {
     
     chk=document.createElement('button')
     chk.onclick= ()=> {
-        document.querySelector('.gV3Svc').click()
+        document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.rG0ybd.xPh1xb.P9KVBf.LCXT6 > div.TqwH9c > div.SZfyod > div > div > div:nth-child(2) > span > button").click()
         chrome.storage.sync.get('names',async (data) =>{
             nameList.innerHTML=check(data.names)
             await sleep(500)
-            document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.mKBhCf.qwU8Me.RlceJe.kjZr4 > div > div.Bx7THd.PBWx0c.Uy7Qke.XN1AMe > div.CYZUZd > div.VUk8eb > div > span > button > i").click()
-
+            document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.rG0ybd.xPh1xb.P9KVBf.LCXT6 > div.TqwH9c > div.SZfyod > div > div > div:nth-child(2) > span > button").click()
         })
+        
     }
 chk.innerHTML='CHECK'
 chk.style.width='40vw'
@@ -109,8 +113,9 @@ chk.style.color='#191970'
 
     div.appendChild(chk)
     div.appendChild(logn)
-    div.appendChild(nameList)
     div.appendChild(X);
+    div.appendChild(nameList)
+    
     document.body.appendChild(div);
     X.addEventListener('click',(()=> {
         document.body.removeChild(div);
